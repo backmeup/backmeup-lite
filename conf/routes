@@ -1,0 +1,80 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+### USERS
+                        
+# JSON
+POST   /users/:username/login                  controllers.Users.login_JSON(username: String)
+GET    /users/:username/logout                 controllers.Users.logout_JSON(username: String)
+POST   /users/:username/register               controllers.Users.register_JSON(username: String)
+GET    /users/:username                        controllers.Users.getUser_JSON(username: String)
+DELETE /users/:username                        controllers.Users.deleteUser_JSON(username: String)
+
+# HTML
+GET    /html/users                             controllers.Users.index()     
+POST   /html/users/:username/login             controllers.Users.login_HTML(username: String)
+GET    /html/users/:username/logout            controllers.Users.logout_HTML(username: String)
+POST   /html/users/:username/register          controllers.Users.register_HTML(username: String)
+GET    /html/users/:username                   controllers.Users.getUser_HTML(username: String)
+PUT    /html/users/:username                   controllers.Users.updateUser_HTML(username: String)
+DELETE /html/users/:username                   controllers.Users.deleteUser_HTML(username: String)
+
+### USER PROPERTIES
+
+# JSON
+GET    /users/:username/properties             controllers.Users.listProperties_JSON(username: String)
+POST   /users/:username/properties/:key        controllers.Users.createProperty_JSON(username: String, key: String)
+GET    /users/:username/properties/:key        controllers.Users.getProperty_JSON(username: String, key: String)
+DELETE /users/:username/properties/:key        controllers.Users.deleteProperty_JSON(username: String, key: String)
+
+### DATASOURCES
+
+# JSON
+GET    /datasources                            controllers.Datasources.listAvailable_JSON()
+GET    /datasources/:username/profiles         controllers.Datasources.getProfilesFor_JSON(username: String)
+DELETE /datasources/:username/profiles/:pId    controllers.Datasources.deleteProfile(username: String, pId: Long)
+POST   /datasources/:username/:sourceId/auth   controllers.Datasources.authorizeDatasource_JSON(username: String, sourceId: String)
+GET    /datasources/:username/:profileId/post  controllers.Datasources.postAuthorize(username: String, profileId: Long)
+GET    /datasources/:username/:profileId/post/ controllers.Datasources.postAuthorize(username: String, profileId: Long)
+POST   /datasources/:username/:profileId/post  controllers.Datasources.postAuthorize(username: String, profileId: Long)
+
+# HTML
+GET    /html/datasources                       controllers.Datasources.listAvailable_HTML()
+
+### DATASINKS
+
+#JSON
+GET    /datasinks                              controllers.Datasinks.listAvailable_JSON()
+GET    /datasinks/:username/profiles           controllers.Datasinks.getProfilesFor_JSON(username: String)
+DELETE /datasinks/:username/profiles/:pId      controllers.Datasinks.deleteProfile(username: String, pId: Long)
+POST   /datasinks/:username/:sinkId/auth       controllers.Datasinks.authorizeDatasink_JSON(username:String, sinkId: String)
+GET    /datasinks/:username/:profileId/post    controllers.Datasinks.postAuthorize(username: String, profileId: Long)
+GET    /datasinks/:username/:profileId/post/   controllers.Datasinks.postAuthorize(username: String, profileId: Long)
+POST   /datasinks/:username/:profileId/post    controllers.Datasinks.postAuthorize(username: String, profileId: Long)
+
+# HTML
+GET     /html/datasinks                        controllers.Datasinks.listAvailable_HTML()
+
+### ACTIONS
+
+# JSON
+GET     /actions                               controllers.Actions.listAvailable_JSON() 
+
+### JOBS
+
+# JSON
+GET     /jobs/:username                        controllers.Jobs.getJobsFor_JSON(username: String)
+POST    /jobs/:username                        controllers.Jobs.createJob(username: String)
+DELETE  /jobs/:username/:id                    controllers.Jobs.deleteJob(username: String, id: Long)
+GET     /jobs/:username/:id/backups            controllers.Jobs.listBackupsFor_JSON(username: String, id: Long)
+
+### BACKUPS
+GET     /backups/:username/search              controllers.Backups.searchBackups_JSON(username: String)
+POST    /backups/:username/search              controllers.Backups.searchBackups_JSON(username: String)
+
+### THUMBNAILS
+GET     /thumbnails/:userId/:fileId            controllers.Thumbnails.getThumbnail(userId: Long, fileId: String)
+
+# Static resources
+GET     /assets/*file                          controllers.Assets.at(path="/public", file)

@@ -1,0 +1,2 @@
+#!/bin/sh
+play -DapplyEvolutions.default=true run

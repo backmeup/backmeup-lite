@@ -1,0 +1,6 @@
+#!/bin/sh
+rm -rf data/
+rm -rf thumbnails/
+rm -rf tmp/
+rm -rf my-backups/
+rm  db/play.db.*

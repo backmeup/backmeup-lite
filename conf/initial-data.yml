@@ -1,0 +1,84 @@
+users:
+
+    - !!models.User
+        username: Rainer
+        email: rainer@example.com
+        password: password
+        
+profiles:                  
+    -  !!models.DatastoreProfile
+         profileName: Download to ZIP
+         description: Downloads stuff to a ZIP archive file on my harddisk
+         pluginClass: org.backmeup.plugins.connectors.zip.ZipDatasink
+         type:        DATASINK
+         created:     2012-11-08
+         modified:    2012-11-08
+         user: !!models.User
+                   id: 1
+               
+    -  !!models.DatastoreProfile
+         profileName: My Dummy Source
+         description: Just a dummy source profile
+         pluginClass: org.backmeup.plugins.connectors.dummy.DummyDatasource
+         type:        DATASOURCE
+         created:     2012-11-07
+         modified:    2012-11-07
+         user: !!models.User
+                   id: 1
+                   
+    -  !!models.DatastoreProfile
+         profileName: Test Moodle Account
+         description: The BackMeUp Moodle test account
+         pluginClass: org.backmeup.plugins.connectors.moodle.MoodleDatasource
+         type:        DATASOURCE
+         created:     2012-11-16
+         modified:    2012-11-16
+         user: !!models.User
+                   id: 1
+                   
+    -  !!models.DatastoreProfile
+         profileName: Local Harddrive
+         description: Downloads to my local harddrive
+         pluginClass: org.backmeup.plugins.connectors.localfs.LocalFilesystemDatasink
+         type:        DATASINK
+         created:     2012-11-19
+         modified:    2012-11-19
+         user: !!models.User
+                   id: 1
+                   
+datastoreProfileProperties:
+    - !!models.DatastoreProfileProperty
+        propertyName: Username
+        propertyValue: backmeup
+        profile: !!models.DatastoreProfile
+                     id: 3
+                     
+    - !!models.DatastoreProfileProperty
+        propertyName: Password
+        propertyValue: 286bafbb1a9faf4dc4e104a33e222304
+        profile: !!models.DatastoreProfile
+                     id: 3
+                     
+    - !!models.DatastoreProfileProperty
+        propertyName: MoodleServerUrl
+        propertyValue: http://gtn02.gtn-solutions.com/moodle20
+        profile: !!models.DatastoreProfile
+                     id: 3
+                                     
+jobs:
+    - !!models.Job
+        jobTitle: Dummy Job
+        start:    2012-11-07
+        delay:    100000000000
+        created:  2012-11-07
+        modified: 2012-11-07 
+        actions: org.backmeup.plugins.actions.thumbnail.ThumbnailAction,
+                 org.backmeup.plugins.actions.indexing.IndexAction 
+                 
+        user: !!models.User
+                  id: 1
+        sourceProfile: !!models.DatastoreProfile
+                           id: 2
+        sinkProfile:   !!models.DatastoreProfile
+                           id: 4
+

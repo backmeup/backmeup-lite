@@ -1,0 +1,21 @@
+@(datasources: List[org.backmeup.api.connectors.DatastoreDescription])
+
+<html>
+  <head></head>
+  <body>
+    <h1>Available Datasources</h1>
+    
+    @for(datasource <- datasources) {
+      <li>@datasource.datastoreClass</li>
+    }
+    
+    <h1>Create New Datasource Profile</h1>
+    <form method="POST" id="create_profile_form">
+      Username: <input id="create_username" name="username"><br/>
+      Profile Name: <input id="create_profileName" name="profileName"><br/>
+      Description: <input id="create_description" name="description"><br/>
+      Plugin Class: <input id="create_pluginClass" name="pluginClass"><br/>
+      <input type="button" value="CREATE" onclick="document.forms['create_profile_form'].action='/datasources/' + document.getElementById('create_username').value + '/profiles'; document.forms['create_profile_form'].submit();">
+    </form>
+  </body>
+</html>

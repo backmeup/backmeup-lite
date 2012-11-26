@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Users</h1>
+    <h2>Get User</h2>
+    Username: 
+    <input id="get_username">
+    <input type="button" value="GET" onclick="window.location.href = 'users/' + document.getElementById('get_username').value">
+
+    <h2>Register User</h2>
+
+    <form method="POST" id="registration_form">
+      Username: <input id="register_username" name="username"><br/>
+      E-Mail: <input id="register_email" name="email"><br/>
+      Password: <input id="registers_password" name="password"><br/>
+      <input type="button" value="REGISTER" onclick="document.forms['registration_form'].action='users/' + document.getElementById('register_username').value + '/register'; document.forms['registration_form'].submit();">
+    </form>
+  </body>
+</html>

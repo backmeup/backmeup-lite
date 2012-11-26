@@ -1,0 +1,12 @@
+@(datasinks: List[org.backmeup.api.connectors.DatastoreDescription])
+
+<html>
+  <head></head>
+  <body>
+    <h1>Available Datasinks</h1>
+    
+    @for(datasink <- datasinks) {
+      <li>@datasink.datastoreClass</li>
+    }
+  </body>
+</html>
