@@ -1,6 +1,6 @@
 # BackMeUp Lite
 
-A fork/simplified version of the BackMeUp framework, based on [Play!](http://www.playframework.com).
+A fork/trimmed-down version of the BackMeUp framework, based on [Play!](http://www.playframework.com).
 
 ## Getting Started
 
