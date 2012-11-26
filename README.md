@@ -11,7 +11,7 @@ A fork/trimmed-down version of the BackMeUp framework, based on [Play!](http://w
   a copy, and don't just rename the file. Otherwise you will likely erase
   the template from the Git repository on your next push!
 
-* In the ``conf/application.conf.template`` file, configure the following
+* In the (newly created) ``conf/application.conf`` file, configure the following
   application properties according to your environment:
   * Index server host and port information (can usually stay on the defaults)
   * Directory used for storing thumbnail images and thumbnail image dimensions
